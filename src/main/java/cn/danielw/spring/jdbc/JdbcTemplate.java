@@ -1,6 +1,5 @@
 package cn.danielw.spring.jdbc;
 
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 
 import javax.sql.DataSource;
@@ -38,21 +37,33 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
         return list == null || list.isEmpty() ? null : list.get(0);
     }
 
-    public long queryForLong(String sql, Object... args) throws DataAccessException {
+    /**
+     * @return 0 if not found
+     */
+    public long queryForLong(String sql, Object... args) {
         Long result = queryForObject(sql, Long.class, args);
         return result == null ? 0L : result;
     }
 
-    public int queryForInt(String sql, Object... args) throws DataAccessException {
+    /**
+     * @return 0 if not found
+     */
+    public int queryForInt(String sql, Object... args) {
         Integer result = queryForObject(sql, Integer.class, args);
         return result == null ? 0 : result;
     }
 
-    public String queryForString(String sql, Object... args) throws DataAccessException {
+    /**
+     * @return null if not found
+     */
+    public String queryForString(String sql, Object... args) {
         return queryForObject(sql, String.class, args);
     }
 
-    public boolean queryForBoolean(String sql, Object... args) throws DataAccessException {
+    /**
+     * @return false if not found
+     */
+    public boolean queryForBoolean(String sql, Object... args) {
         Boolean result = queryForObject(sql, Boolean.class, args);
         return result == null ? false : result;
     }

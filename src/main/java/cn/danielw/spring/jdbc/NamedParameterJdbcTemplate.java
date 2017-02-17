@@ -31,20 +31,32 @@ public class NamedParameterJdbcTemplate extends org.springframework.jdbc.core.na
         return queryForObject(sql, new MapSqlParameterSource(paramMap), rowMapper);
     }
 
+    /**
+     * @return 0 if not found
+     */
     public long queryForLong(String sql, Map<String, ?> params) throws DataAccessException {
         Long result = queryForObject(sql, params, Long.class);
         return result == null ? 0L : result;
     }
 
+    /**
+     * @return 0 if not found
+     */
     public int queryForInt(String sql, Map<String, ?> params) throws DataAccessException {
         Integer result = queryForObject(sql, params, Integer.class);
         return result == null ? 0 : result;
     }
 
+    /**
+     * @return null if not found
+     */
     public String queryForString(String sql, Map<String, ?> params) throws DataAccessException {
         return queryForObject(sql, params, String.class);
     }
 
+    /**
+     * @return false if not found
+     */
     public boolean queryForBoolean(String sql, Map<String, ?> params) throws DataAccessException {
         Boolean result = queryForObject(sql, params, Boolean.class);
         return result == null ? false : result;

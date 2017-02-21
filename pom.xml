@@ -7,7 +7,7 @@
 	<groupId>cn.danielw</groupId>
 	<artifactId>spring-jdbc-template</artifactId>
 	<packaging>jar</packaging>
-	<version>0.2.0</version>
+	<version>0.2.1</version>
 	<description>queryForObject() should return null instead of throwing an Exception</description>
     <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

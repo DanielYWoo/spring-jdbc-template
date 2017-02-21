@@ -3,9 +3,6 @@ package cn.danielw.spring.jdbc;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import java.sql.SQLException;
 
@@ -18,12 +15,7 @@ public class JdbcTemplateTest {
 
     @BeforeClass
     public static void init() throws SQLException {
-        EmbeddedDatabaseFactory fac = new EmbeddedDatabaseFactory();
-        fac.setDatabaseType(EmbeddedDatabaseType.H2);
-        EmbeddedDatabase ds = fac.getDatabase();
-        ds.getConnection().createStatement().execute("create table test (c1 int, c2 int)");
-        ds.getConnection().createStatement().execute("insert into test (c1, c2) values(1, 1)");
-        test = new JdbcTemplate(ds);
+        test = new JdbcTemplate(TestUtil.getDS());
     }
 
     @Test

@@ -11,4 +11,5 @@ Exactly like Spring JdbcTemplate, actually it's a subclass of it.
 e.g.
 ```java
  int value = new JdbcTemplate(dataSource).queryForInt("select age from user where id=?", id);
+ User u = new NamedParameterJdbcTemplate(dataSource).queryForObject("select * from user where id=:id", params, rowMapper);
 ```

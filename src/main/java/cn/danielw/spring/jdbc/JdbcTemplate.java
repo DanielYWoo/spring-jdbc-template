@@ -38,6 +38,9 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
     }
 
     /**
+     *
+     * @param sql
+     * @param args
      * @return 0 if not found
      */
     public long queryForLong(String sql, Object... args) {
@@ -46,6 +49,8 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
     }
 
     /**
+     * @param sql
+     * @param args
      * @return 0 if not found
      */
     public int queryForInt(String sql, Object... args) {
@@ -54,6 +59,9 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
     }
 
     /**
+     *
+     * @param sql
+     * @param args
      * @return null if not found
      */
     public String queryForString(String sql, Object... args) {
@@ -61,6 +69,9 @@ public class JdbcTemplate extends org.springframework.jdbc.core.JdbcTemplate {
     }
 
     /**
+     *
+     * @param sql
+     * @param args
      * @return false if not found
      */
     public boolean queryForBoolean(String sql, Object... args) {
